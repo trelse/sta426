@@ -1,0 +1,60 @@
+---
+title: "week1 part b"
+author: "Thanh Elsener"
+date: "9/21/2020"
+output: 
+  html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = TRUE}
+set.seed(2020)
+LN <- rlnorm(100, meanlog = 1, sdlog = 25)
+```
+
+```{css style, echo=FALSE}
+p {
+  font-size: 20px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+```
+
+<section>
+<h2>Section 1 </h2>
+<p> Below is the histogram of simulated data </p>
+
+
+```{r, echo = TRUE}
+hist(LN, breaks = 20)
+mean_normal <- round(mean(LN),3)
+sd_normal <- round(sd(LN),3)
+```
+
+<p> mean of the observed data is `r toString(mean_normal)` and the standard deviation is `r toString(sd_normal)`</p>
+
+<p> Histogram shows a very right-skewed distribution and all data points have positive values. So in practice, log transformation will be performed on data </p>
+</section>
+
+<section>
+<h2>Section 2</h2>
+<p> Below is the histogram of the log-transfomation of the simulated data</p>
+
+
+```{r}
+hist(log(LN), breaks = 20)
+mean_log <- round(mean(log(LN)),3)
+sd_log <- round(sd(log(LN)),3)
+```
+
+<p> mean of the log-transformed data is `r toString(mean_log)` and the standard deviation is `r toString(sd_log)`</p>
+
+</section>
+
+
+
